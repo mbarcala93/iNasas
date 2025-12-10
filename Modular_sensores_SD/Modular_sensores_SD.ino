@@ -497,7 +497,7 @@ void construirURL(DatosSensores& datos, char* buffer) {
   // Periodo
   itoa(periodo, temp, 10);
   strcat(buffer, temp);
-  strcat(buffer, "-%7B");
+  strcat(buffer, "|%7B");
   
   // Batería
   strcat(buffer, "%22Ba%22%3A%22");

@@ -23,7 +23,9 @@
 #include <SoftwareSerial.h>
 #include "LowPower.h"
 #include <SPI.h>
-#include <SD.h>
+#include <Sdfat.h>
+
+Sdfat SD;
 
 // ============================================================================
 // CONFIGURACIÓN DE SENSORES - ACTIVA/DESACTIVA AQUÍ
@@ -48,7 +50,7 @@
 // MOSI: pin 11, MISO: pin 12, SCK: pin 13
 
 // SIM800L
-SoftwareSerial SIM800(0, 1); // RX=0, TX=1
+SoftwareSerial SIM800(2, 3); // RX=0, TX=1
 
 // Sensor de Temperatura (NTC)
 #if SENSOR_TEMPERATURA

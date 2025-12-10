@@ -492,7 +492,7 @@ void escribirLog(const char* mensaje) {
 void construirURL(DatosSensores& datos, char* buffer) {
   char temp[20];
   
-  strcpy(buffer, "inasas.cuartazona.es/caramba2-protoSIM800-");
+  strcpy(buffer, "inasas.cuartazona.es/caramba3|protoSIM800|");
   
   // Periodo
   itoa(periodo, temp, 10);

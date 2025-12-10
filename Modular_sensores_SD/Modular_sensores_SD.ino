@@ -565,9 +565,16 @@ bool enviarHTTP(DatosSensores& datos) {
   // Despertar SIM800
   SIM800.write("AT\r\n");
   delay(500);
+
+  // Activa por completo el SIM800L
+  SIM800.write("AT+CFUN=1\r\n");
+  delay(1000);  
   
   // Configurar GPRS
   SIM800.write("AT+CGATT=1\r\n");
+  delay(500);
+
+  SIM800.write("AT+SAPBR=3,1,\"CONTYPE\",\"GPRS\"\r\n");  //Define el tipo de conexión y la fuerza a GPRS, evita que se conecte a CSD
   delay(500);
   
   SIM800.write("AT+SAPBR=3,1,\"APN\",\"" APN_OPERADOR "\"\r\n");

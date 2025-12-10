@@ -445,9 +445,9 @@ bool enviarHTTP(const char* temp, const char* cond, const char* bat,
   while (SIM800.available() > 0) SIM800.read();
   
   // Construye URL con datos
-  SIM800.write("AT+HTTPPARA=\"URL\",\"inasas.cuartazona.es/caramba2-protoSIM800-");
+  SIM800.write("AT+HTTPPARA=\"URL\",\"inasas.cuartazona.es/caramba3|protoSIM800|");
   SIM800.print(periodo);
-  SIM800.print("-%7B%22Ba%22%3A%22");
+  SIM800.print("|%7B%22Ba%22%3A%22");
   SIM800.print(bat);
   SIM800.print("%22%2C%22Cb%22%3A%22");
   SIM800.print(cob);

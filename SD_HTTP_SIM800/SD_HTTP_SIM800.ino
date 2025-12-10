@@ -79,6 +79,12 @@ int cargando;
 int porcentaje;
 int cobertura;
 
+// Si se utiliza vscode hace falta llamar antes las funciones de que aparezcan los loop
+float GetTemp ();
+float GetEC();
+void GetBateria ();
+void GetCobertura ();
+
 /*
  * FUNCIÓN: guardarDatosSD
  * =======================
@@ -316,9 +322,9 @@ char* enviahttp(int periodo, String tempNTC, String conductividad, String bateri
   SIM800.write("AT+HTTPINIT\r\n");
   delay(500);
   while ( SIM800.available() > 0) SIM800.read(); 
-  SIM800.write("AT+HTTPPARA=\"URL\",\"inasas.cuartazona.es/caramba2-protoSIM800-");
+  SIM800.write("AT+HTTPPARA=\"URL\",\"inasas.cuartazona.es/caramba3|protoSIM800|");
   SIM800.print(periodo);
-  SIM800.print("-%7B%22Ba%22%3A%22");
+  SIM800.print("|%7B%22Ba%22%3A%22");
   SIM800.print(bateria);
   SIM800.print("%22%2C%22Cb%22%3A%22");
   SIM800.print(cobert);
@@ -331,9 +337,9 @@ char* enviahttp(int periodo, String tempNTC, String conductividad, String bateri
   SIM800.print("%22%7D");
   SIM800.write("\"\r\n");
 
-  Serial.print("URL: inasas.cuartazona.es/caramba2-protoSIM800-");
+  Serial.print("URL: inasas.cuartazona.es/caramba3|protoSIM800|");
   Serial.print(periodo);
-  Serial.print("-%7B%22Ba%22%3A%22");
+  Serial.print("|%7B%22Ba%22%3A%22");
   Serial.print(bateria);
   Serial.print("%22%2C%22Cb%22%3A%22");
   Serial.print(cobert);
